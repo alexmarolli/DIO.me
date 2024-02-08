@@ -1,6 +1,6 @@
-const offset=0;
-const limit=10;
-
+const loadMoreButton = document.getElementById('loadMoreButton');
+const limit = 5
+let offset =0
 
 function convertPokemonToLi(pokemon) {
     console.log(pokemon.types)
@@ -24,10 +24,20 @@ function convertPokemonToLi(pokemon) {
 
 const pokemonList = document.getElementById('pokemonList');
 
-pokeApi.getPokemons()
-    .then((pokemons =[]) =>{
-        pokemonList.innerHTML+= pokemons.map(convertPokemonToLi).join('');
-    })
+function loadPokemonsItens (offset , limit){
+    pokeApi.getPokemons(offset, limit)
+        .then((pokemons =[]) =>{
+            const newHtml =pokemons.map(convertPokemonToLi).join('');
+            pokemonList.innerHTML+= newHtml;
+        })
+}
+loadPokemonsItens(offset , limit);
+
+loadMoreButton.addEventListener('click', () =>{
+    offset+=limit
+    loadPokemonsItens(offset ,limit)
+    }
+)
 
 
 
