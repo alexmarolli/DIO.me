@@ -84,7 +84,9 @@
     margin: .5rem;
     padding: 1rem;
     border-radius: 1rem;
+
 }
+
 
 .pokemon .number {
     color: #000;
@@ -156,6 +158,7 @@
 @media screen and (min-width: 576px) {
     .pokemons {
         grid-template-columns: 1fr 1fr 1fr;
+        :hover
     }
 }
 
@@ -164,3 +167,5 @@
         grid-template-columns: 1fr 1fr 1fr 1fr;
     }
 }
+
+@media screen()

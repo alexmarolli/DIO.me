@@ -1,6 +1,14 @@
 *{
     font-family:'Roboto', 'sans-serif'
 }
+body{
+    background-color: gainsboro;
+}
+
+h1{
+    color: dimgray;
+    text-align: center;
+}
 
 .content{
     padding: 1rem;
@@ -8,17 +16,28 @@
 
 ol.pokemons {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 200px));
     list-style: none;
-    margin: 0;
+    margin: 20px;
     padding: 0;
 }
 
 ol.pokemons li{
     margin: .5rem;
-    padding: 2rem 1rem;
+    padding: 2rem .5rem;
     border-radius: .5rem;
     color: #ffffff;
     height: 100px;
+    animation: fromLeft 1.5s backwards;
+}
+@keyframes fromLeft {
+    from{
+        opacity: 0;
+        transform: translateX(50px);
+    }
+    to{
+        opacity: 1;
+        transform: translateX(0px);
+    }
 }
 
