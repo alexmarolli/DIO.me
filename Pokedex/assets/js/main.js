@@ -26,8 +26,16 @@ const pokemonList = document.getElementById('pokemonList');
 function loadPokemonsItens (offset , limit){
     pokeApi.getPokemons(offset, limit)
         .then((pokemons =[]) =>{
-            const newHtml =pokemons.map(convertPokemonToLi).join('');
-            pokemonList.innerHTML+= newHtml;
+            const newHtml = pokemons.map(convertPokemonToLi).join('');
+            // Cria um elemento temporário para adicionar os novos pokemons
+            const tempContainer = document.createElement('div');
+            tempContainer.innerHTML = newHtml;
+            // Adiciona a classe 'new' aos novos cards
+            const newCards = tempContainer.querySelectorAll('.pokemon');
+            newCards.forEach(card => {
+                card.classList.add('new');
+                pokemonList.appendChild(card); // Adiciona os novos cards à lista
+            });
         })
 }
 loadPokemonsItens(offset , limit);

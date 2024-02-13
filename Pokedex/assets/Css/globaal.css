@@ -28,12 +28,12 @@ ol.pokemons li{
     border-radius: .5rem;
     color: #ffffff;
     height: 100px;
-    animation: fromLeft 1.5s backwards;
+    animation: fromLeft .5s backwards;
 }
 @keyframes fromLeft {
     from{
         opacity: 0;
-        transform: translateX(50px);
+        transform: translateX(20px);
     }
     to{
         opacity: 1;
